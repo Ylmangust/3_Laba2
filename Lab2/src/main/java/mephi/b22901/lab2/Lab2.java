@@ -4,6 +4,8 @@
 
 package mephi.b22901.lab2;
 
+import GearFactory.DolGuldurGearFactory;
+
 /**
  *
  * @author Регина
@@ -11,6 +13,11 @@ package mephi.b22901.lab2;
 public class Lab2 {
 
     public static void main(String[] args) {
-        System.out.println(new MordorGearFactory().createWeapon().getName());
+        OrkDirector director = new OrkDirector();
+        DolGuldurGearFactory gear = new DolGuldurGearFactory();
+        OrkBuilder builder = new DolGuldurOrkBuilder(gear);
+        director.setOrkBuilder(builder);
+        director.createScoutOrk();
+        System.out.println(director.getOrk().toString());
     }
 }

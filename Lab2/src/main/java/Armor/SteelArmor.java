@@ -11,7 +11,7 @@ import Armor.Armor;
  * @author Регина
  */
 public class SteelArmor implements Armor{
-    private final String name = "Стальная броня";
+    private final String name = "Steel armor";
 
     @Override
     public String getName() {

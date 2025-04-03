@@ -4,15 +4,13 @@
  */
 package Armor;
 
-import Armor.Armor;
-
 /**
  *
  * @author Регина
  */
 public class LeatherArmor implements Armor{
      
-    private final String name = "Кожаная броня";
+    private final String name = "Leather armor";
 
     @Override
     public String getName() {

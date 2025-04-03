@@ -2,19 +2,17 @@
  * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
  * Click nbfs://nbhost/SystemFileSystem/Templates/Classes/Class.java to edit this template
  */
-package Armor;
+package Weapon;
 
 /**
  *
- * @author –†–µ–≥–∏–Ω–∞
+ * @author –Â„ËÌ‡
  */
-public class ChainMail implements Armor{
+public class Bow implements Weapon{
+    private final String name = "Bow with arrows";
 
-    private final String name = "Chain-mail";
-    
     @Override
     public String getName() {
         return name;
     }
-    
 }

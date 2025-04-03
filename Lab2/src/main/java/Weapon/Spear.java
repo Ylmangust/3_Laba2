@@ -10,7 +10,7 @@ package Weapon;
  */
 public class Spear implements Weapon{
 
-    private final String name = "Копье";
+    private final String name = "Spear";
     
     @Override
     public String getName() {

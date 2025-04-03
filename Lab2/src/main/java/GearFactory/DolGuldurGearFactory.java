@@ -2,31 +2,30 @@
  * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
  * Click nbfs://nbhost/SystemFileSystem/Templates/Classes/Class.java to edit this template
  */
-package mephi.b22901.lab2;
+package GearFactory;
 
-import Armor.LeatherArmor;
-import Banner.MistyMountainsBanner;
-import Weapon.Axe;
-
+import Armor.ChainMail;
+import Banner.DolGuldurBanner;
+import Weapon.Spear;
 /**
  *
  * @author Регина
  */
-public class MistyMountainsGearFactory implements OrkGearFactory{
+public class DolGuldurGearFactory implements OrkGearFactory{
 
     @Override
     public Weapon.Weapon createWeapon() {
-        return new Axe();
+        return new Spear();
     }
 
     @Override
     public Armor.Armor createArmor() {
-        return new LeatherArmor();
+        return new ChainMail();
     }
 
     @Override
     public Banner.Banner createBanner() {
-        return new MistyMountainsBanner();
+        return new DolGuldurBanner();
     }
     
 }

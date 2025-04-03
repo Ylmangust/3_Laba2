@@ -11,7 +11,7 @@ package Banner;
  */
 public class MordorBanner implements Banner{
 
-    private final String name = "Знамя с Красным Оком";
+    private final String name = "Banner with the Eye of Sauron";
     
     @Override
     public String getName() {

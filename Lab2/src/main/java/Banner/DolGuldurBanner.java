@@ -11,7 +11,7 @@ package Banner;
  */
 public class DolGuldurBanner implements Banner{
 
-     private final String name = "Знамя с Пауком";
+     private final String name = "Banner with the Black Spider";
     
     @Override
     public String getName() {

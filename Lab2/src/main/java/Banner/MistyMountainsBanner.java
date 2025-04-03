@@ -11,7 +11,7 @@ package Banner;
  */
 public class MistyMountainsBanner implements Banner{
     
-     private final String name = "Знамя с Луной";
+     private final String name = "Banner with the Moon";
 
     @Override
     public String getName() {
