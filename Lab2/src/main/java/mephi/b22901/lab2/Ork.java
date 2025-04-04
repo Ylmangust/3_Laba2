@@ -9,6 +9,7 @@ package mephi.b22901.lab2;
  * @author Регина
  */
 public class Ork {
+
     private String name;
     private String weapon;
     private String armor;
@@ -29,7 +30,7 @@ public class Ork {
     public void setArmor(String armor) {
         this.armor = armor;
     }
-    
+
     public void setBanner(String banner) {
         this.banner = banner;
     }
@@ -49,10 +50,15 @@ public class Ork {
     public void setHp(int hp) {
         this.hp = hp;
     }
-    
-    @Override
-    public String toString(){
-        return name + " " + weapon + " " + armor + " " + banner + " Strength: " + strength + " Agility: " + agility + " Intelligence: " + intelligence + " HP: " + hp;  
+
+    public String getName() {
+        return name;
     }
-    
+
+    @Override
+    public String toString() {
+        return name;
+//return name + " " + weapon + " " + armor + " " + banner + " Strength: " + strength + " Agility: " + agility + " Intelligence: " + intelligence + " HP: " + hp;
+    }
+
 }

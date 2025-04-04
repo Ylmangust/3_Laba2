@@ -4,6 +4,7 @@
  */
 package mephi.b22901.lab2;
 
+import java.awt.event.ActionEvent;
 import javax.swing.*;
 import javax.swing.tree.*;
 
@@ -18,13 +19,17 @@ public class GUI extends JFrame {
         frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
         frame.setSize(450, 300);
 
-       JSplitPane splitPane = new JSplitPane(JSplitPane.HORIZONTAL_SPLIT);    
+        JSplitPane splitPane = new JSplitPane(JSplitPane.HORIZONTAL_SPLIT);
         JPanel createPanel = new JPanel();
         createPanel.setLayout(new BoxLayout(createPanel, BoxLayout.Y_AXIS));
         JLabel chooseTribe = new JLabel("Choose a tribe:");
         JRadioButton btn1 = new JRadioButton("Mordor");
         JRadioButton btn2 = new JRadioButton("Dol Guldur");
         JRadioButton btn3 = new JRadioButton("Misty Mountains");
+
+        btn1.setActionCommand("Mordor");
+        btn2.setActionCommand("Dol Guldur");
+        btn3.setActionCommand("Misty Mountains");
 
         ButtonGroup tribe = new ButtonGroup();
         tribe.add(btn1);
@@ -40,6 +45,10 @@ public class GUI extends JFrame {
         JRadioButton btn4 = new JRadioButton("Basic");
         JRadioButton btn5 = new JRadioButton("Scout");
         JRadioButton btn6 = new JRadioButton("Leader");
+
+        btn4.setActionCommand("Basic");
+        btn5.setActionCommand("Scout");
+        btn6.setActionCommand("Leader");
 
         ButtonGroup role = new ButtonGroup();
         role.add(btn4);
@@ -66,16 +75,59 @@ public class GUI extends JFrame {
         root.add(armyMordor);
         root.add(armyMisty);
         root.add(armyGuldur);
-        JTree armyTree = new JTree(root);
+        DefaultTreeModel modelTree = new DefaultTreeModel(root);
+        JTree armyTree = new JTree(modelTree);
         JScrollPane armyScrollP = new JScrollPane(armyTree);
         armyScrollP.setBorder(BorderFactory.createEmptyBorder(10, 10, 10, 10));
 
         splitPane.setLeftComponent(armyScrollP);
         splitPane.setRightComponent(createPanel);
         splitPane.setDividerLocation(225);
-        
+
         frame.add(splitPane);
         frame.setVisible(true);
         frame.setLocationRelativeTo(null);
+
+        createBtn.addActionListener((ActionEvent e) -> {
+            ButtonModel selectedTribe = tribe.getSelection();
+            ButtonModel selectedRole = role.getSelection();
+            if (selectedTribe != null && selectedRole != null) {
+                //JOptionPane.showMessageDialog(null, "Selected tribe: " + selectedTribe.getActionCommand() + "\nSelected role:" + selectedRole.getActionCommand(), null, JOptionPane.INFORMATION_MESSAGE);
+                Ork newOrk = createOrk(selectedTribe.getActionCommand(), selectedRole.getActionCommand());
+                DefaultMutableTreeNode orkNode = new DefaultMutableTreeNode(newOrk);
+                switch (selectedTribe.getActionCommand()) {
+                    case "Mordor":
+                        armyMordor.add(orkNode);
+                        break;
+                    case "Dol Guldur":
+                        armyGuldur.add(orkNode);
+                        break;
+                    case "Misty Mountains":
+                        armyMisty.add(orkNode);
+                        break;
+                }
+                modelTree.reload();
+            }
+        });
     }
+
+    private Ork createOrk(String tribe, String role) {
+        OrkDirector director = new OrkDirector();
+        OrkBuilder builder = OrkBuilderFactory.createBuilder(tribe);
+        director.setOrkBuilder(builder);
+        switch (role) {
+            case "Basic":
+                director.createBasicOrk();
+                break;
+            case "Scout":
+                director.createScoutOrk();
+                break;
+            case "Leader":
+                director.createLeaderOrk();
+                break;
+        }
+        Ork ork = director.getOrk();
+        return ork;
+    }
+
 }
