@@ -32,7 +32,7 @@ abstract class OrkBuilder <T extends OrkGearFactory>{
         ork.setArmor(gearFactory.createArmor().getName());
     };
     public void setBanner(){
-        ork.setArmor(gearFactory.createBanner().getName());
+        ork.setBanner(gearFactory.createBanner().getName());
     };
     public void setBow(){
         ork.setWeapon(gearFactory.createBow().getName());

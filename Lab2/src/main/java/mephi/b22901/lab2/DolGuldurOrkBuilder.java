@@ -23,8 +23,8 @@ public class DolGuldurOrkBuilder <T extends OrkGearFactory> extends OrkBuilder<T
     @Override
     public void setAttributes() {
         Random random = new Random();
-        this.ork.setStrength(random.nextInt(101));
-        this.ork.setAgility(random.nextInt(101));
+        this.ork.setStrength(random.nextInt(100)+1);
+        this.ork.setAgility(random.nextInt(100)+1);
         this.ork.setHp(random.nextInt(151)+50);
         this.ork.setIntelligence(random.nextInt(50)+1);       
     }

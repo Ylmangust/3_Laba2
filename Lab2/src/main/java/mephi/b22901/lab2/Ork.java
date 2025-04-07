@@ -13,7 +13,7 @@ public class Ork {
     private String name;
     private String weapon;
     private String armor;
-    private String banner = "";
+    private String banner;
     private int strength;
     private int agility;
     private int intelligence;
@@ -55,10 +55,41 @@ public class Ork {
         return name;
     }
 
+    public String getWeapon() {
+        return weapon;
+    }
+
+    public String getArmor() {
+        return armor;
+    }
+
+    public String getBanner() {
+        if (banner == null) {
+            return "Not a leader";
+        }else {
+            return banner;
+        }
+    }
+
+    public int getStrength() {
+        return strength;
+    }
+
+    public int getAgility() {
+        return agility;
+    }
+
+    public int getIntelligence() {
+        return intelligence;
+    }
+
+    public int getHp() {
+        return hp;
+    }
+
     @Override
     public String toString() {
         return name;
-//return name + " " + weapon + " " + armor + " " + banner + " Strength: " + strength + " Agility: " + agility + " Intelligence: " + intelligence + " HP: " + hp;
     }
-
+    
 }

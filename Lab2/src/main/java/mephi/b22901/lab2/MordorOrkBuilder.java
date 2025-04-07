@@ -21,8 +21,8 @@ public class MordorOrkBuilder  <T extends OrkGearFactory> extends OrkBuilder<T>{
     @Override
     public void setAttributes() {
         Random random = new Random();
-        this.ork.setStrength((int)(random.nextInt(101)*(1+coef)));
-        this.ork.setAgility(((int)(random.nextInt(101)*(1-coef))));
+        this.ork.setStrength((int)((random.nextInt(100)+1)*(1+coef)));
+        this.ork.setAgility(((int)((random.nextInt(100)+1)*(1-coef))));
         this.ork.setHp(random.nextInt(151)+50);
         this.ork.setIntelligence(random.nextInt(50)+1); 
     }

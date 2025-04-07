@@ -3,9 +3,6 @@
  */
 
 package mephi.b22901.lab2;
-
-import GearFactory.DolGuldurGearFactory;
-
 /**
  *
  * @author Регина

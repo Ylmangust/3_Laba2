@@ -21,8 +21,8 @@ public class MistyMountainsOrkBuilder <T extends OrkGearFactory> extends OrkBuil
     @Override
     public void setAttributes() {
         Random random = new Random();
-        this.ork.setStrength(random.nextInt(101));
-        this.ork.setAgility(((int)(random.nextInt(101)*(1+coef))));
+        this.ork.setStrength(random.nextInt(100)+1);
+        this.ork.setAgility(((int)((random.nextInt(100)+1)*(1+coef))));
         this.ork.setHp(random.nextInt(151)+50);
         this.ork.setIntelligence(((int)((random.nextInt(50)+1)*(1-coef)))); 
     }
